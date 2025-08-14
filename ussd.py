@@ -8,6 +8,7 @@ elif ussd=="*312#":
     1. Daily plans
     2. Weekly plans 
     3. Monthly plans''')
+#operations for daily plan
     data_plan=input("Enter an option's number: ")
     if data_plan =="1":
         print('''Here are the daily plans
@@ -32,6 +33,7 @@ elif ussd=="*312#":
             print("Transaction failed due to insufficient balance")
         else:
             print("Invalid operation")
+            #operations for weekly plan
     elif data_plan =="2":
         print('''Here are the weekly plans
         1. #1,000 for 2gb
@@ -55,4 +57,31 @@ elif ussd=="*312#":
             print("Transaction failed due to insufficient balance")
         else:
             print("invalid operation")
-
+        #operations for monthly plan
+    elif data_plan =="3":
+        print('''Here are the monthly plans
+        1. 2,000 for 10gb
+        2. 5,000 for 20gb
+        3. 10,000 for 80gb''')
+        data_bundle = input("Pick a bundle ")
+        if data_bundle=="1" and balance>=2000:
+            balance-=2000
+            print(f"You have received 10gb and your account balance is {balance:.2f}")
+        elif data_bundle =="2" and balance>=5000:
+              balance-=5000
+              print(f"You have received 20gb and your account balance is {balance:.2f}")
+        elif data_bundle =="3" and balance>=10000:
+              balance-=10000
+              print(f"You have received 80gb and your account balance is {balance:.2f}")
+        elif data_bundle=="1" and balance<2000:
+             print("Transaction failed due to insufficient balance")
+        elif data_bundle=="2" and balance<5000:
+             print("Transaction failed due to insufficient balance")
+        elif data_bundle=="3" and balance<10000:
+             print("Transaction failed due to insufficient balance")
+        else:
+            print("Invalid operation")
+    else:
+        print("Invalid operation")
+else:
+    print("That USSD is not supported")
