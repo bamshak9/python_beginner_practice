@@ -15,6 +15,9 @@ def sell_product(store, name, quantity):
     else:
         short=quantity-store[name.capitalize()]["Quantity"]
         print(f"Sorry, we are short of the product by {short}")
+def display_inventory(store):
+    print(store)
+    print(f"The number of products we have is {len(store.keys())}")
 running = True
 while running:
     print("Welcome to the store")
@@ -54,12 +57,9 @@ while running:
             sell_product(store, name, quantity)
         else:
             print("Item does not exist in inventory? ")
-
-
-
-
-
-
+    elif command ==4:
+        display_inventory(store)
+    
 
 print("Goodbye have a nice day")
 
