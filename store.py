@@ -18,6 +18,16 @@ def sell_product(store, name, quantity):
 def display_inventory(store):
     print(store)
     print(f"The number of products we have is {len(store.keys())}")
+def most_expensive_product(store):
+    expensive=store["Laptop"]["Price"]
+    expensive_item="Laptop"
+    for item in store:
+        if store[item]["Price"]>expensive:
+            expensive=store[item]["Price"]
+            expensive_item=item
+        else:
+            continue
+    print(f"The most expensive product is {expensive_item} and it costs {expensive}")
 running = True
 while running:
     print("Welcome to the store")
@@ -59,6 +69,8 @@ while running:
             print("Item does not exist in inventory? ")
     elif command ==4:
         display_inventory(store)
+    elif command ==5:
+        most_expensive_product(store)
     
 
 print("Goodbye have a nice day")
