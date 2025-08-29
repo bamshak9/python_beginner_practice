@@ -28,6 +28,11 @@ def most_expensive_product(store):
         else:
             continue
     print(f"The most expensive product is {expensive_item} and it costs {expensive}")
+def total_potential_sales(store):
+    total =0
+    for item in store:
+        total+=(store[item]["Price"]*store[item]["Quantity"])
+    print(f"The total value of items in our inventory is {total}")
 running = True
 while running:
     print("Welcome to the store")
@@ -71,7 +76,12 @@ while running:
         display_inventory(store)
     elif command ==5:
         most_expensive_product(store)
-    
+    elif command ==6:
+        total_potential_sales(store)
+    else:
+        print("The command you entered does not exist")
 
+    
+print(" ")
 print("Goodbye have a nice day")
 
